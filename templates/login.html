@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I'm BLUE</title>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+        $(document).ready(function () {
+            $('#button_zaloguj').click(function () {
+                var login = $('.input_login').val();
+                var password = $('.input_haso').val();
+                $.ajax({
+                    type: 'POST',
+                    url: '/',
+                    data: {Login: login, Password: password},
+                    success: function (response) {
+                        if (response === "Zalogowano pomyślnie") {
+                            window.location.href = "/main.html?username=" + login + "&password=" + password;
+                        } else {
+                            $('#error').text(response); // Wyświetl błąd na stronie
+                        }
+
+                    }
+                });
+            });
+        });
+    </script>
+    <style id="applicationStylesheet" type="text/css">
+      .mediaViewInfo {
+        --web-view-name: Login;
+        --web-view-id: Login;
+        --web-scale-on-resize: true;
+        --web-center-horizontally: true;
+        --web-center-vertically: true;
+        --web-enable-deep-linking: true;
+      }
+      :root {
+        --web-view-ids: Login;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        border: none;
+      }
+      #Login {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 1);
+        overflow: hidden;
+        --web-view-name: Login;
+        --web-view-id: Login;
+        --web-scale-on-resize: true;
+        --web-center-horizontally: true;
+        --web-center-vertically: true;
+        --web-enable-deep-linking: true;
+      }
+      #main {
+        position: absolute;
+        width: 1920px;
+        height: 751px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 184px;
+        overflow: visible;
+      }
+      #footer {
+        fill: rgba(0, 0, 0, 0.502);
+      }
+      .footer {
+        position: absolute;
+        overflow: visible;
+        width: 100%;
+        height: 71px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 680px;
+      }
+      #login {
+        fill: rgba(180, 222, 220, 0.929);
+        stroke: rgba(174, 204, 201, 0.82);
+        stroke-width: 2px;
+        stroke-linejoin: miter;
+        stroke-linecap: butt;
+        stroke-miterlimit: 4;
+        shape-rendering: auto;
+      }
+      .login {
+        position: absolute;
+        overflow: visible;
+        width: 528px;
+        height: 567px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0px;
+      }
+      .input_login {
+        position: absolute;
+        overflow: visible;
+        width: 475px;
+        height: 39px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 226px;
+      }
+      .input_haso {
+        position: absolute;
+        overflow: visible;
+        width: 475px;
+        height: 39px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 331px;
+      }
+      .button_zaloguj {
+        position: absolute;
+        overflow: visible;
+        width: 317px;
+        height: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 446px;
+        background-color: rgba(0, 0, 0, 0.502);
+        color: white;
+        border: none;
+        border-radius: 25px;
+        font-family: Arial Rounded MT;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
+        line-height: 50px;
+      }
+      #content {
+        position: absolute;
+        width: 53px;
+        height: 128px;
+        left: 719px;
+        top: 195px;
+        overflow: visible;
+      }
+      #login_p {
+        left: 0px;
+        top: 0px;
+        position: absolute;
+        overflow: visible;
+        width: 49px;
+        white-space: nowrap;
+        text-align: left;
+        font-family: Arial Rounded MT;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.502);
+      }
+      #haso {
+        left: 0px;
+        top: 101px;
+        position: absolute;
+        overflow: visible;
+        width: 54px;
+        white-space: nowrap;
+        text-align: left;
+        font-family: Arial Rounded MT;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.502);
+      }
+      #zaloguj {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 460px;
+        position: absolute;
+        overflow: visible;
+        width: 71px;
+        white-space: nowrap;
+        text-align: left;
+        font-family: Arial Rounded MT;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        color: rgba(255, 255, 255, 1);
+      }
+      #zresetuj_haso_w {
+        left: 891px;
+        top: 374px;
+        position: absolute;
+        overflow: visible;
+        width: 138px;
+        white-space: nowrap;
+        text-align: left;
+        font-family: Arial Rounded MT;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        color: rgba(37, 135, 148, 1);
+      }
+      #bottom {
+        position: absolute;
+        width: 303px;
+        height: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 505px;
+        overflow: visible;
+      }
+      #nie_masz_konta {
+        left: 0px;
+        top: 1px;
+        position: absolute;
+        overflow: visible;
+        width: 157px;
+        white-space: nowrap;
+        text-align: left;
+        font-family: Arial Rounded MT;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        color: rgba(37, 135, 148, 1);
+      }
+      #zarejestruj_sie {
+        left: 165px;
+        top: 0px;
+        position: absolute;
+        overflow: visible;
+        width: 139px;
+        white-space: nowrap;
+        text-align: left;
+        font-family: Arial Rounded MT;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        color: rgba(37, 135, 148, 1);
+      }
+      #zresetuj_haso_w {
+        left: 891px;
+        top: 374px;
+        position: absolute;
+        overflow: visible;
+        width: 138px;
+        white-space: nowrap;
+        text-align: left;
+        font-family: Arial Rounded MT;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        color: rgba(37, 135, 148, 1);
+      }
+      #logo {
+        position: absolute;
+        width: 144px;
+        height: 137px;
+        left: 888px;
+        top: 51px;
+        overflow: visible;
+      }
+
+
+
+
+    </style>
+  </head>
+  <body>
+    <div id="Login">
+      <div id="main">
+        <svg class="footer">
+          <rect
+            id="footer"
+            rx="0"
+            ry="0"
+            x="0"
+            y="0"
+            width="100%"
+            height="71"
+          ></rect>
+        </svg>
+        <svg class="login">
+          <rect
+            id="login"
+            rx="43"
+            ry="43"
+            x="0"
+            y="0"
+            width="528"
+            height="567"
+          ></rect>
+        </svg>
+
+        <form action ="/main.html" method="get">
+
+
+            <input type="text" class="input_login" id="input_login" placeholder="Login" />
+            <input type="password" class="input_haso" id="input_haso" placeholder="Hasło" />
+
+        </form>
+
+      <button class="button_zaloguj" id="button_zaloguj">Zaloguj</button>
+      <div id="content">
+        <div id="login_p">
+          <span>login</span>
+        </div>
+        <div id="haso">
+          <span>hasło</span>
+        </div>
+      </div>
+      <div id="zresetuj_haso_w">
+        <span>zresetuj hasło</span>
+      </div>
+      <div id="bottom">
+        <div id="nie_masz_konta">
+          <span>nie masz konta?</span>
+        </div>
+        <div id="zarejestruj_sie">
+          <span>zarejestruj sie</span>
+        </div>
+      </div>
+      <img id="logo" src="logo.png" srcset="logo.png 1x" />
+
+    </div>
+  </div>
+</body>
+</html>
